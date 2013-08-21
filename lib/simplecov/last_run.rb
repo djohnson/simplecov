@@ -1,7 +1,7 @@
 module SimpleCov::LastRun
   class << self
     def last_run_path
-      File.join(SimpleCov.coverage_path, '.last_run.json')
+      File.join(SimpleCov.output_path, '.last_run.json')
     end
 
     def read

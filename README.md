@@ -317,7 +317,7 @@ end
 
 Normally, you want to have your coverage analyzed across ALL of your test suites, right?
 
-Simplecov automatically caches coverage results in your (coverage_path)/.resultset.json. Those results will then
+Simplecov automatically caches coverage results in your (output_path)/.resultset.json. Those results will then
 be automatically merged when generating the result, so when coverage is set up properly for cucumber and your
 unit / functional / integration tests, all of those test suites will be taken into account when building the
 coverage report.

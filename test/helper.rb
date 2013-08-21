@@ -3,7 +3,7 @@ require 'simplecov'
 require 'test/unit'
 require 'shoulda'
 
-SimpleCov.coverage_dir('tmp/coverage')
+SimpleCov.output_dir('tmp/coverage')
 
 class Test::Unit::TestCase
   def source_fixture(filename)

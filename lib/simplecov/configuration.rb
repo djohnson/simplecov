@@ -21,23 +21,36 @@ module SimpleCov::Configuration
   #
   # The name of the output and cache directory. Defaults to 'coverage'
   #
-  # Configure with SimpleCov.coverage_dir('cov')
+  # Configure with SimpleCov.output_dir('cov')
   #
-  def coverage_dir(dir=nil)
-    return @coverage_dir if defined? @coverage_dir and dir.nil?
-    @coverage_dir = (dir || 'coverage')
+  def output_dir(dir=nil)
+    return @output_dir if defined? @output_dir and dir.nil?
+    @output_dir = (dir || 'coverage')
+  end
+
+  #
+  # The root to the output directory.  This defaults to the
+  # current working directory
+  #
+  # Configure with SimpleCof.output_root('/my/project/path')
+  #
+  def output_root(output_root = nil)
+    return @output_root if defined? @output_root and output_root.nil?
+    @output_root = output_root.nil? ? root : File.expand_path(output_root)
   end
 
   #
   # Returns the full path to the output directory using SimpleCov.root
-  # and SimpleCov.coverage_dir, so you can adjust this by configuring those
+  # and SimpleCov.output_dir, so you can adjust this by configuring those
   # values. Will create the directory if it's missing
   #
-  def coverage_path
-    coverage_path = File.join(root, coverage_dir)
-    FileUtils.mkdir_p coverage_path
-    coverage_path
+  def output_path
+    return @output_path if defined? @output_path
+    @output_path = File.join(output_root, output_dir)
+    FileUtils.mkdir_p @output_path
+    @output_path
   end
+  alias_method :coverage_path, :output_path
 
   #
   # Returns the list of configured filters. Add filters using SimpleCov.add_filter.

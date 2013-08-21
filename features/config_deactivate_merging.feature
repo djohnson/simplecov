@@ -6,7 +6,7 @@ Feature:
   of a single test suite on each run of any suite.
 
   It's probably preferrable to generate the individual suite results into separate
-  output directories instead (see SimpleCov.coverage_dir), but it is possible :)
+  output directories instead (see SimpleCov.output_dir), but it is possible :)
 
   Scenario:
     Given SimpleCov for Test/Unit is configured with:
